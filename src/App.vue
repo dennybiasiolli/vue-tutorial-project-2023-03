@@ -11,12 +11,12 @@ import CompositionAPI from '@/components/CompositionAPI.vue';
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <OptionsAPI />
-      <CompositionAPI />
     </div>
   </header>
-
+  
   <main>
+    <OptionsAPI />
+    <CompositionAPI />
     <TheWelcome />
   </main>
 </template>
