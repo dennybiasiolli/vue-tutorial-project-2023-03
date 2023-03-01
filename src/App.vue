@@ -1,9 +1,7 @@
 <script setup>
-import OptionsAPI from '@/components/OptionsAPI.vue'
-import CompositionAPI from '@/components/CompositionAPI.vue'
+import Counter from '@/components/Counter.vue'
 </script>
 
 <template>
-  <OptionsAPI />
-  <CompositionAPI />
+  <Counter />
 </template>
