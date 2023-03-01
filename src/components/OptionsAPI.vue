@@ -17,7 +17,7 @@ export default {
   // Methods are functions that mutate state and trigger updates.
   // They can be bound as event listeners in templates.
   methods: {
-    increment(value=1) {
+    increment(value) {
       this.count += value
     }
   },
@@ -36,7 +36,6 @@ export default {
     Count is: {{ count }}<br>
     Is Even: {{ isEven }}
   </div>
-  <button @click="increment">Increment</button>
   <button @click="increment(1)">Increment</button>
   <button @click="increment(-1)">Decrement</button>
 </template>
