@@ -16,6 +16,7 @@ function multiply(value) {
 </script>
 
 <template>
+  <h2>Counter - Composition API</h2>
   <div>
     Count is {{ count }}<br>
     Is Even: {{ isEven }}<br>
