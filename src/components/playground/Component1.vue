@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted, onUnmounted } from 'vue';
 
 const msg = 'Ciao 1'
 const rawHtml = '<div style="color:red">Ciao 2</div>'
@@ -20,26 +20,35 @@ function getStyle() {
   }
   return 'color:blue;'
 }
+
+onMounted(() => {
+  console.log('Component1 mounted')
+})
+onUnmounted(() => {
+  console.log('Component1 unmounted')
+})
 </script>
 
 <template>
-  <h2>Component 1</h2>
-  <span>Message: {{ msg }}</span><br>
-  <p>Using text interpolation: {{ rawHtml }}</p>
-  <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+  <div>
+    <h2>Component 1</h2>
+    <span>Message: {{ msg }}</span><br>
+    <p>Using text interpolation: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 
-  <hr>
+    <hr>
 
-  <div :class="myClass2">My DIV 1</div>
-  <div v-bind="objectOfAttrs">My DIV 2</div>
+    <div :class="myClass2">My DIV 1</div>
+    <div v-bind="objectOfAttrs">My DIV 2</div>
 
-  <hr>
+    <hr>
 
-  {{ number + 1 }}
-  {{ ok ? 'YES' : 'NO' }}
-  {{ message.split('').reverse().join('') }}
-  <div
-    :id="`list-${id}-${msg}-test`"
-    :style="getStyle()"
-  >My other div</div>
+    {{ number + 1 }}
+    {{ ok ? 'YES' : 'NO' }}
+    {{ message.split('').reverse().join('') }}
+    <div
+      :id="`list-${id}-${msg}-test`"
+      :style="getStyle()"
+    >My other div</div>
+  </div>
 </template>

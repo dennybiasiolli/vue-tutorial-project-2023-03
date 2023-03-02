@@ -1,5 +1,5 @@
 <script setup>
-import { nextTick, reactive, ref } from 'vue';
+import { nextTick, onMounted, onUnmounted, reactive, ref } from 'vue';
 
 const state = reactive({ count: 0 })
 
@@ -33,21 +33,31 @@ const data = reactive({
   n1: 1,
   n2: 234,
 })
+
+onMounted(() => {
+  console.log('Component2 mounted')
+})
+onUnmounted(() => {
+  console.log('Component2 unmounted')
+})
+
 </script>
 
 <template>
-  <h2>Component 2</h2>
-  <div>{{ state.count }}</div>
-  <button @click="increment">Increment</button>
+  <div>
+    <h2>Component 2</h2>
+    <div>{{ state.count }}</div>
+    <button @click="increment">Increment</button>
 
-  <hr>
+    <hr>
 
-  <div>{{ obj }}</div>
-  <button @click="mutateDeeply">Mutate deeply</button>
+    <div>{{ obj }}</div>
+    <button @click="mutateDeeply">Mutate deeply</button>
 
 
-  <hr>
+    <hr>
 
-  {{ n1 }} {{ n2.value }}
-  <button @click="incrementN">Increment N</button>
+    {{ n1 }} {{ n2.value }}
+    <button @click="incrementN">Increment N</button>
+  </div>
 </template>
