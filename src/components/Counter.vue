@@ -2,9 +2,19 @@
 import { ref, computed } from 'vue'
 
 const count = ref(0)
+const number = ref(123)
 
-const isEven = computed(() => count.value % 2 === 0)
+function isEvenFn() {
+  console.log('isEvenFn is called')
+  return count.value % 2 === 0
+}
+
+const isEven = computed(() => {
+  console.log('isEven computed is called')
+  return count.value % 2 === 0
+})
 const isOdd = computed(() => !isEven.value)
+const evenOdd = computed(() => count.value % 2 === 0 ? 'even' : 'odd')
 const isPositive = computed(() => count.value > 0)
 
 function increment(value) {
@@ -22,6 +32,14 @@ function multiply(value) {
     Is Even: {{ isEven }}<br>
     Is Odd: {{ isOdd }}<br>
     Is Positive: {{ isPositive }}
+
+    <hr>
+
+    <div>1. {{ count % 2 === 0 ? 'even' : 'odd' }}</div>
+    <div>2. {{ isEvenFn() ? 'even' : 'odd' }}</div>
+    <div>3. {{ isEven ? 'even' : 'odd' }}</div>
+    <div>4. {{ evenOdd }}</div>
+    {{ number }}
   </div>
   <button @click="increment(1)">+1</button>
   <button @click="increment(-1)">-1</button>
