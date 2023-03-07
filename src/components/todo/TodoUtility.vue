@@ -16,4 +16,19 @@ onMounted(() => {
 
 <template>
   <h2>To-do Utility</h2>
+  <ul>
+    <li
+      v-for="item in items"
+      :key="item.id"
+      :class="{ 'item-completed': item.completed }"
+    >
+      {{ item.text }}
+    </li>
+  </ul>
 </template>
+
+<style scoped>
+.item-completed {
+  text-decoration: line-through;
+}
+</style>
