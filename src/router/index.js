@@ -11,22 +11,27 @@ import TodoUtility from '@/components/todo/TodoUtility.vue'
 
 export const routes = [
   {
+    name: 'HomePage',
     path: '/',
     component: HomePage,
   },
   {
+    name: 'Counter',
     path: '/counter',
     component: Counter,
   },
   {
+    name: 'CounterOptions',
     path: '/counter-options',
     component: CounterOptions,
   },
   {
+    name: 'PlaygroundComponents',
     path: '/playground-components',
     component: PlaygroundComponents,
   },
   {
+    name: 'TodoUtility',
     path: '/todo-utility',
     component: TodoUtility,
   },
