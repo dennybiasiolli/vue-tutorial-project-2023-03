@@ -1,4 +1,6 @@
 <script setup>
+import TodoItem from './TodoItem.vue'
+
 const props = defineProps({
   title: {
     type: String,
@@ -19,7 +21,10 @@ const props = defineProps({
       :key="item.id"
       :class="{ 'item-completed': item.completed }"
     >
-      <input type="checkbox" v-model="item.completed" /> {{ item.text }}
+      <TodoItem
+        :text="item.text"
+        :completed="item.completed"
+      />
     </li>
   </ul>
 </template>
