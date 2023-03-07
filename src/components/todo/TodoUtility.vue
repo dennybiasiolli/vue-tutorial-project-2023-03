@@ -33,9 +33,3 @@ onMounted(() => {
     :items="completedItems"
   />
 </template>
-
-<style scoped>
-.item-completed {
-  color: grey;
-}
-</style>

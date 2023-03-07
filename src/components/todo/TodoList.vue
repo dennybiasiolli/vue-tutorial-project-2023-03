@@ -23,3 +23,9 @@ const props = defineProps({
     </li>
   </ul>
 </template>
+
+<style scoped>
+.item-completed {
+  color: grey;
+}
+</style>
