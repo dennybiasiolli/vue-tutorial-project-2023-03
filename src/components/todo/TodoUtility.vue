@@ -1,7 +1,9 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 const items = ref([])
+const todoItems = computed(() => items.value.filter(item => !item.completed))
+const completedItems = computed(() => items.value.filter(item => item.completed))
 
 onMounted(() => {
   items.value = [
@@ -16,9 +18,22 @@ onMounted(() => {
 
 <template>
   <h2>To-do Utility</h2>
+
+  <h4>To-do list</h4>
   <ul>
     <li
-      v-for="item in items"
+      v-for="item in todoItems"
+      :key="item.id"
+      :class="{ 'item-completed': item.completed }"
+    >
+      {{ item.text }}
+    </li>
+  </ul>
+
+  <h4>Completed list</h4>
+  <ul>
+    <li
+      v-for="item in completedItems"
       :key="item.id"
       :class="{ 'item-completed': item.completed }"
     >
