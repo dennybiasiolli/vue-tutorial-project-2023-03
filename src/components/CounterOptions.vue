@@ -1,28 +1,13 @@
 <script>
+import { mapState, mapActions } from 'pinia'
+import { useStore } from '@/stores/main'
+
 export default {
-  data() {
-    return {
-      count: 0,
-    }
-  },
   computed: {
-    isEven() {
-      return this.count % 2 === 0
-    },
-    isOdd() {
-      return !this.isEven
-    },
-    isPositive() {
-      return this.count > 0
-    },
+    ...mapState(useStore, ['count', 'isEven', 'isOdd', 'isPositive']),
   },
   methods: {
-    increment(value) {
-      this.count += value
-    },
-    multiply(value) {
-      this.count *= value
-    },
+    ...mapActions(useStore, ['increment', 'multiply']),
   },
 }
 </script>

@@ -1,7 +1,11 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { ref, computed } from 'vue'
+import { useStore } from '@/stores/main'
 
-const count = ref(0)
+const store = useStore()
+const { count, isEven, isOdd, isPositive } = storeToRefs(store)
+const { increment, multiply } = store
 const number = ref(123)
 
 function isEvenFn() {
@@ -9,20 +13,7 @@ function isEvenFn() {
   return count.value % 2 === 0
 }
 
-const isEven = computed(() => {
-  console.log('isEven computed is called')
-  return count.value % 2 === 0
-})
-const isOdd = computed(() => !isEven.value)
 const evenOdd = computed(() => count.value % 2 === 0 ? 'even' : 'odd')
-const isPositive = computed(() => count.value > 0)
-
-function increment(value) {
-  count.value += value
-}
-function multiply(value) {
-  count.value *= value
-}
 </script>
 
 <template>
