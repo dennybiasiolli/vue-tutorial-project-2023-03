@@ -5,10 +5,15 @@ import {
 
 import Counter from '@/components/Counter.vue'
 import CounterOptions from '@/components/CounterOptions.vue'
+import HomePage from '@/components/HomePage.vue'
 import PlaygroundComponents from '@/components/playground/Components.vue'
 import TodoUtility from '@/components/todo/TodoUtility.vue'
 
 export const routes = [
+  {
+    path: '/',
+    component: HomePage,
+  },
   {
     path: '/counter',
     component: Counter,
