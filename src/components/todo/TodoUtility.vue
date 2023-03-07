@@ -34,11 +34,13 @@ onMounted(() => {
   <h2>To-do Utility</h2>
 
   <TodoList
+    v-if="todoItems.length > 0"
     title="To-do list"
     :items="todoItems"
     @shitchCompletedTodo="handleSwitchTodo"
   />
   <TodoList
+    v-if="completedItems.length > 0"
     title="Completed list"
     :items="completedItems"
     @shitchCompletedTodo="handleSwitchTodo"
