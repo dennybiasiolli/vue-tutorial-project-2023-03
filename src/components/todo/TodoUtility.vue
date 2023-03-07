@@ -10,6 +10,15 @@ function filterTodoCondition(item) {
 const todoItems = computed(() => items.value.filter(filterTodoCondition))
 const completedItems = computed(() => items.value.filter(item => item.completed))
 
+function handleSwitchTodo({ id, completed }) {
+  // function searchItem(item) {
+  //   return item.id === id
+  // }
+  // const item = items.value.find(searchItem)
+  const item = items.value.find(item => item.id === id)
+  item.completed = completed
+}
+
 onMounted(() => {
   items.value = [
     { id: 1, text: 'farina', completed: false },
@@ -27,9 +36,11 @@ onMounted(() => {
   <TodoList
     title="To-do list"
     :items="todoItems"
+    @shitchCompletedTodo="handleSwitchTodo"
   />
   <TodoList
     title="Completed list"
     :items="completedItems"
+    @shitchCompletedTodo="handleSwitchTodo"
   />
 </template>
