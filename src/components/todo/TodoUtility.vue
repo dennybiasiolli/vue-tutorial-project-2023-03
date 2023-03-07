@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import TodoList from './TodoList.vue'
 
 const items = ref([])
 function filterTodoCondition(item) {
@@ -23,27 +24,14 @@ onMounted(() => {
 <template>
   <h2>To-do Utility</h2>
 
-  <h4>To-do list</h4>
-  <ul>
-    <li
-      v-for="item in todoItems"
-      :key="item.id"
-      :class="{ 'item-completed': item.completed }"
-    >
-      <input type="checkbox" v-model="item.completed" /> {{ item.text }}
-    </li>
-  </ul>
-
-  <h4>Completed list</h4>
-  <ul>
-    <li
-      v-for="item in completedItems"
-      :key="item.id"
-      :class="{ 'item-completed': item.completed }"
-    >
-      <input type="checkbox" v-model="item.completed" /> {{ item.text }}
-    </li>
-  </ul>
+  <TodoList
+    title="To-do list"
+    :items="todoItems"
+  />
+  <TodoList
+    title="Completed list"
+    :items="completedItems"
+  />
 </template>
 
 <style scoped>
