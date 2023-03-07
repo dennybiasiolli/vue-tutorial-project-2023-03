@@ -2,7 +2,11 @@
 import { computed, onMounted, ref } from 'vue'
 
 const items = ref([])
-const todoItems = computed(() => items.value.filter(item => !item.completed))
+function filterTodoCondition(item) {
+  return !item.completed
+}
+// const todoItems = computed(() => items.value.filter(item => !item.completed))
+const todoItems = computed(() => items.value.filter(filterTodoCondition))
 const completedItems = computed(() => items.value.filter(item => item.completed))
 
 onMounted(() => {
