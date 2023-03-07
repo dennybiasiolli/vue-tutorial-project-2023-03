@@ -1,13 +1,12 @@
-<script setup>
-import TodoUtility from '@/components/todo/TodoUtility.vue'
-import Counter from '@/components/Counter.vue'
-import CounterOptions from '@/components/CounterOptions.vue'
-import PlaygroundComponents from '@/components/playground/Components.vue'
-</script>
-
 <template>
-  <TodoUtility />
-  <Counter />
-  <CounterOptions />
-  <PlaygroundComponents />
+  <nav>
+    <router-link to="/counter">Counter</router-link>
+    |
+    <router-link to="/counter-options">Counter Options</router-link>
+    |
+    <router-link to="/playground-components">Playground</router-link>
+    |
+    <router-link to="/todo-utility">Todo Utility</router-link>
+  </nav>
+  <router-view />
 </template>
