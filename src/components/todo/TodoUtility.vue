@@ -1,22 +1,15 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
+import { useTodoStore } from '@/stores/todo'
 import TodoList from './TodoList.vue'
 
-const items = ref([])
-function filterTodoCondition(item) {
-  return !item.completed
-}
-// const todoItems = computed(() => items.value.filter(item => !item.completed))
-const todoItems = computed(() => items.value.filter(filterTodoCondition))
-const completedItems = computed(() => items.value.filter(item => item.completed))
+const todoStore = useTodoStore()
+const { items, todoItems, completedItems } = storeToRefs(todoStore)
+const { switchTodo } = todoStore
 
 function handleSwitchTodo({ id, completed }) {
-  // function searchItem(item) {
-  //   return item.id === id
-  // }
-  // const item = items.value.find(searchItem)
-  const item = items.value.find(item => item.id === id)
-  item.completed = completed
+  switchTodo(id, completed)
 }
 
 onMounted(() => {
