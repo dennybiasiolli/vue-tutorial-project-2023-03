@@ -10,6 +10,7 @@ import Inputs from '@/components/Inputs.vue'
 import NotFound from '@/components/NotFound.vue'
 import PlaygroundComponents from '@/components/playground/Components.vue'
 import TodoUtility from '@/components/todo/TodoUtility.vue'
+import Watchers from '@/components/Watchers.vue'
 
 export const routes = [
   {
@@ -36,6 +37,11 @@ export const routes = [
     name: 'Inputs',
     path: '/inputs',
     component: Inputs,
+  },
+  {
+    name: 'Watchers',
+    path: '/watchers',
+    component: Watchers,
   },
   {
     name: 'TodoUtility',
