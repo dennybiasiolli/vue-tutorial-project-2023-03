@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { defineStore } from 'pinia'
 
 export const useTodoStore = defineStore('todo', {
@@ -15,6 +16,14 @@ export const useTodoStore = defineStore('todo', {
     },
   },
   actions: {
+    async getTodoItems() {
+      try {
+        const { data } = await axios.get('/todos')
+        this.items = data
+      } catch (error) {
+        this.items = []
+      }
+    },
     addTodo(text) {
       console.log('addTodo', text)
     },

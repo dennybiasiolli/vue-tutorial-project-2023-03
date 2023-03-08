@@ -2,7 +2,6 @@
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 
-axios.defaults.baseURL = 'http://localhost:3000'
 axios.interceptors.request.use(request => {
   request.headers.Authorization = 'Bearer 123456789'
   return request
