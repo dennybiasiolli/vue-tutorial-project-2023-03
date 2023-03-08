@@ -20,6 +20,8 @@ const { todoItems } = storeToRefs(todoStore)
     |
     <router-link :to="{ name: 'Watchers' }">Watchers</router-link>
     |
+    <router-link :to="{ name: 'Forms' }">Forms</router-link>
+    |
     <router-link :to="{ name: 'TodoUtility' }">
       Todo Utility
       <span v-if="todoItems.length > 0">

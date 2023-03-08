@@ -5,6 +5,7 @@ import {
 
 import Counter from '@/components/Counter.vue'
 import CounterOptions from '@/components/CounterOptions.vue'
+import Forms from '@/components/Forms.vue'
 import HomePage from '@/components/HomePage.vue'
 import Inputs from '@/components/Inputs.vue'
 import NotFound from '@/components/NotFound.vue'
@@ -42,6 +43,11 @@ export const routes = [
     name: 'Watchers',
     path: '/watchers',
     component: Watchers,
+  },
+  {
+    name: 'Forms',
+    path: '/forms',
+    component: Forms,
   },
   {
     name: 'TodoUtility',
