@@ -3,6 +3,7 @@ import {
   createWebHashHistory,
 } from 'vue-router'
 
+import AxiosTest from '@/components/AxiosTest.vue'
 import Counter from '@/components/Counter.vue'
 import CounterOptions from '@/components/CounterOptions.vue'
 import Forms from '@/components/Forms.vue'
@@ -48,6 +49,11 @@ export const routes = [
     name: 'Forms',
     path: '/forms',
     component: Forms,
+  },
+  {
+    name: 'AxiosTest',
+    path: '/axios-test',
+    component: AxiosTest,
   },
   {
     name: 'TodoUtility',
