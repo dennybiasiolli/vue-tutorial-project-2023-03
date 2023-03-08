@@ -1,16 +1,27 @@
 <script setup>
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { useTodoStore } from '@/stores/todo'
 import TodoList from './TodoList.vue'
 
 const todoStore = useTodoStore()
 const { items, todoItems, completedItems } = storeToRefs(todoStore)
-const { switchTodo } = todoStore
+const { switchTodo, addTodo } = todoStore
 
 function handleSwitchTodo({ id, completed }) {
   switchTodo(id, completed)
 }
+
+const formValid = ref(false)
+const itemText = ref('')
+function handleSubmit() {
+  addTodo(itemText.value)
+  itemText.value = ''
+}
+function validateForm() {
+  formValid.value = !!itemText.value.trim()
+}
+watch(itemText, validateForm)
 
 onMounted(() => {
   items.value = [
@@ -25,6 +36,11 @@ onMounted(() => {
 
 <template>
   <h2>To-do Utility</h2>
+
+  <form @submit.prevent="handleSubmit">
+    <input type="text" placeholder="Add to-do item" v-model="itemText" />
+    <button type="submit" :disabled="!formValid">Add</button>
+  </form>
 
   <TodoList
     v-if="todoItems.length > 0"

@@ -15,6 +15,9 @@ export const useTodoStore = defineStore('todo', {
     },
   },
   actions: {
+    addTodo(text) {
+      console.log('addTodo', text)
+    },
     switchTodo(id, completed) {
       const item = this.items.find(item => item.id === id)
       item.completed = completed
