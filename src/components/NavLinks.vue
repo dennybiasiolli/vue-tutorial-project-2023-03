@@ -16,6 +16,8 @@ const { todoItems } = storeToRefs(todoStore)
     |
     <router-link :to="{ name: 'PlaygroundComponents' }">Playground</router-link>
     |
+    <router-link :to="{ name: 'Inputs' }">Inputs</router-link>
+    |
     <router-link :to="{ name: 'TodoUtility' }">
       Todo Utility
       <span v-if="todoItems.length > 0">

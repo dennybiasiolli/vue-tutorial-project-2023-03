@@ -6,6 +6,7 @@ import {
 import Counter from '@/components/Counter.vue'
 import CounterOptions from '@/components/CounterOptions.vue'
 import HomePage from '@/components/HomePage.vue'
+import Inputs from '@/components/Inputs.vue'
 import NotFound from '@/components/NotFound.vue'
 import PlaygroundComponents from '@/components/playground/Components.vue'
 import TodoUtility from '@/components/todo/TodoUtility.vue'
@@ -30,6 +31,11 @@ export const routes = [
     name: 'PlaygroundComponents',
     path: '/playground-components',
     component: PlaygroundComponents,
+  },
+  {
+    name: 'Inputs',
+    path: '/inputs',
+    component: Inputs,
   },
   {
     name: 'TodoUtility',
