@@ -5,8 +5,8 @@ import { useTodoStore } from '@/stores/todo'
 import TodoList from './TodoList.vue'
 
 const todoStore = useTodoStore()
-const { items, todoItems, completedItems } = storeToRefs(todoStore)
-const { switchTodo, addTodo } = todoStore
+const { todoItems, completedItems } = storeToRefs(todoStore)
+const { switchTodo, addTodo, getTodoItems } = todoStore
 
 function handleSwitchTodo({ id, completed }) {
   switchTodo(id, completed)
@@ -24,13 +24,7 @@ function validateForm() {
 watch(itemText, validateForm)
 
 onMounted(() => {
-  items.value = [
-    { id: 1, text: 'farina', completed: false },
-    { id: 2, text: 'olio', completed: true },
-    { id: 3, text: 'pane', completed: false },
-    { id: 4, text: 'zucchero', completed: true },
-    { id: 5, text: 'sale', completed: false },
-  ]
+  getTodoItems()
 })
 </script>
 
