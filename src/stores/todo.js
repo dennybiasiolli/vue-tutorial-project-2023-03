@@ -24,8 +24,11 @@ export const useTodoStore = defineStore('todo', {
         this.items = []
       }
     },
-    addTodo(text) {
-      console.log('addTodo', text)
+    async addTodo(text) {
+      try {
+        await axios.post('/todos', { text })
+        await this.getTodoItems()
+      } catch (error) { }
     },
     switchTodo(id, completed) {
       const item = this.items.find(item => item.id === id)
