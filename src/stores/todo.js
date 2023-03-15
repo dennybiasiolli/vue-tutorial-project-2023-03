@@ -36,5 +36,11 @@ export const useTodoStore = defineStore('todo', {
         await this.getTodoItems()
       } catch (error) { }
     },
+    async updateTodo(id, text) {
+      try {
+        await axios.patch(`/todos/${id}`, { text })
+        await this.getTodoItems()
+      } catch (error) { }
+    },
   },
 })

@@ -6,13 +6,13 @@ import TodoList from './TodoList.vue'
 
 const todoStore = useTodoStore()
 const { todoItems, completedItems } = storeToRefs(todoStore)
-const { switchTodo, addTodo, getTodoItems } = todoStore
+const { switchTodo, addTodo, getTodoItems, updateTodo } = todoStore
 
 function handleSwitchTodo({ id, completed }) {
   switchTodo(id, completed)
 }
 function handleChangeTodoText({ id, text }) {
-  // TODO
+  updateTodo(id, text)
 }
 
 const formValid = ref(false)
