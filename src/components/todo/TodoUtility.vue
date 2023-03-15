@@ -11,6 +11,9 @@ const { switchTodo, addTodo, getTodoItems } = todoStore
 function handleSwitchTodo({ id, completed }) {
   switchTodo(id, completed)
 }
+function handleChangeTodoText({ id, text }) {
+  // TODO
+}
 
 const formValid = ref(false)
 const itemText = ref('')
@@ -41,11 +44,13 @@ onMounted(() => {
     title="To-do list"
     :items="todoItems"
     @shitchCompletedTodo="handleSwitchTodo"
+    @changeTodoText="handleChangeTodoText"
   />
   <TodoList
     v-if="completedItems.length > 0"
     title="Completed list"
     :items="completedItems"
     @shitchCompletedTodo="handleSwitchTodo"
+    @changeTodoText="handleChangeTodoText"
   />
 </template>
