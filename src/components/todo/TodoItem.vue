@@ -11,7 +11,7 @@ const props = defineProps({
     required: true,
   },
 })
-const emit = defineEmits(['todoChange', 'textChanged'])
+const emit = defineEmits(['todoChange', 'textChanged', 'delete'])
 
 const showForm = ref(false)
 const formValid = ref(false)
@@ -42,6 +42,7 @@ watch(innerText, validateForm)
     />
     {{ text }}
     <button @click="handleEditClick">Edit</button>
+    <button v-if="!showForm" @click="emit('delete')">Delete</button>
   </span>
   <span v-else>
     <input type="text" v-model="innerText" />
