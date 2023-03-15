@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders as expected 1`] = `
+"<h2>Inputs</h2>
+<h4>Text</h4>
+<p>Message is: </p>
+<input placeholder=\\"edit me\\">
+<p>Message (lazy) is: </p>
+<input placeholder=\\"edit me\\">
+<br>
+<span>Multiline message is:</span>
+<p style=\\"white-space: pre-line;\\"></p>
+<textarea placeholder=\\"add multiple lines\\"></textarea>
+<h4>Checkbox</h4>
+<input type=\\"checkbox\\" id=\\"checkbox\\">
+<label for=\\"checkbox\\">false</label>
+<div>Checked names: []</div>
+<input type=\\"checkbox\\" id=\\"1\\" value=\\"1\\">
+<label for=\\"1\\">Jack</label>
+<input type=\\"checkbox\\" id=\\"2\\" value=\\"2\\">
+<label for=\\"2\\">John</label>
+<input type=\\"checkbox\\" id=\\"3\\" value=\\"3\\">
+<label for=\\"3\\">Mike</label>
+<h4>Radio</h4>
+<div>Picked: </div>
+<input type=\\"radio\\" id=\\"1\\" value=\\"1\\">
+<label for=\\"1\\">Jack</label>
+<input type=\\"radio\\" id=\\"2\\" value=\\"2\\">
+<label for=\\"2\\">John</label>
+<input type=\\"radio\\" id=\\"3\\" value=\\"3\\">
+<label for=\\"3\\">Mike</label>
+<h4>Select</h4>
+<div>Selected: </div>
+<select>
+  <option disabled=\\"\\">Please select one</option>
+  <option value=\\"[object Object]\\">Jack</option>
+  <option value=\\"[object Object]\\">John</option>
+  <option value=\\"[object Object]\\">Mike</option>
+</select>
+<div>Selected: []</div>
+<select multiple=\\"\\">
+  <option value=\\"[object Object]\\">Jack</option>
+  <option value=\\"[object Object]\\">John</option>
+  <option value=\\"[object Object]\\">Mike</option>
+</select>
+<div>
+  <p>Number is: 0 --> false</p><input type=\\"number\\" placeholder=\\"edit me\\"><input type=\\"text\\" placeholder=\\"edit me\\">
+</div>
+<div>Trimmed text is \\"\\"</div>
+<input>"
+`;
