@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { defineStore } from 'pinia'
+import * as todoService from '@/services/todo'
 
 export const useTodoStore = defineStore('todo', {
   state() {
@@ -18,7 +18,7 @@ export const useTodoStore = defineStore('todo', {
   actions: {
     async getTodoItems() {
       try {
-        const { data } = await axios.get('/todos')
+        const { data } = await todoService.getTodos()
         this.items = data
       } catch (error) {
         this.items = []
@@ -26,25 +26,25 @@ export const useTodoStore = defineStore('todo', {
     },
     async addTodo(text) {
       try {
-        await axios.post('/todos', { text })
+        await todoService.addTodo({ text })
         await this.getTodoItems()
       } catch (error) { }
     },
     async switchTodo(id, completed) {
       try {
-        await axios.patch(`/todos/${id}`, { completed })
+        await todoService.switchTodo(id, { completed })
         await this.getTodoItems()
       } catch (error) { }
     },
     async updateTodo(id, text) {
       try {
-        await axios.patch(`/todos/${id}`, { text })
+        await todoService.updateTodo(id, { text })
         await this.getTodoItems()
       } catch (error) { }
     },
     async deleteTodo(id) {
       try {
-        await axios.delete(`/todos/${id}`)
+        await todoService.deleteTodo(id)
         await this.getTodoItems()
       } catch {
       }
