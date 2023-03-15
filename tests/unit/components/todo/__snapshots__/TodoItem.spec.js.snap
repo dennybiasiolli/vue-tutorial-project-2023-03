@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render as expected 1`] = `"<span><input type=\\"checkbox\\"> farina <button>Edit</button><button>Delete</button></span>"`;
+
+exports[`should render as expected 2`] = `"<span><input type=\\"checkbox\\"> farina <button>Edit</button><button>Delete</button></span>"`;
